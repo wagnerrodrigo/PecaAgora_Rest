@@ -7,6 +7,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'name' => 'PeçaAgora_API',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -43,22 +44,22 @@ $config = [
             ],
         ],
         'db' => $db,
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'pluralize' => false,
-                    'controller' => 'api/default'
-                ]
-            ],
-        ],
+        // 'urlManager' => [
+        //     'enablePrettyUrl' => true,
+        //     'showScriptName' => false,
+        //     'rules' => [
+        //         [
+        //             'class' => 'yii\rest\UrlRule',
+        //             'pluralize' => false,
+        //             'controller' => 'api/default'
+        //         ]
+        //     ],
+        // ],
     ],
     'params' => $params,
     'modules' => [
         'api' => [
-            'class' => 'app\modules\api\Apimodule',
+            'class' => 'app\modules\api\Apimodule'
         ],
     ],
 ];

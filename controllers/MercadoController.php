@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\controllers\RestClient;
+use RestClient as GlobalRestClient;
 
 /**
  * MercadoController implements the CRUD actions for Mercado model.
@@ -48,19 +49,28 @@ class MercadoController extends Controller
         ]);
     }
 
-    public function obterDadosProduto()
+    public function actionObterDadosProduto($id= 'MLB1570636742')
     {
-        $api = new RestClient([
+        $api = new GlobalRestClient([
             'base_url' => 'https://api.mercadolibre.com/items/',
             'headers' => [
-                'Authorization' => 'Bearer '.$ACCESS_TOKEN,
+                'Authorization' => 'Bearer $ACCESS_TOKEN',
                 'Accept' =>'application/json'
             ]
         ]);
         
-        $result = $api->get('/default');
-
-        echo '<pre>'; print_r($result->response); die;
+        $result = $api->get($id);
+        $response = json_decode($result->response);
+        $product = [
+            'id'=> $response->id,  
+            'title'=> $response->title,  
+            'category'=> $response->category_id,  
+            'price'=> $response->price,  
+            'available_quantity'=> $response->available_quantity, 
+            'thumbnail'=> $response->thumbnail, 
+            'permalink'=> $response->permalink 
+        ];
+        echo '<pre>'; print_r($product); die;
     }
 
     /**
