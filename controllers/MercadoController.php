@@ -70,7 +70,11 @@ class MercadoController extends Controller
             'thumbnail'=> $response->thumbnail, 
             'permalink'=> $response->permalink 
         ];
-        echo '<pre>'; print_r($product); die;
+        // echo '<pre>'; print_r($product); die;
+
+        return $this->render('rest',[
+            'product' => $product,
+        ]);
     }
 
     /**

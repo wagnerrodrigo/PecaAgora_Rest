@@ -44,17 +44,17 @@ $config = [
             ],
         ],
         'db' => $db,
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     'showScriptName' => false,
-        //     'rules' => [
-        //         [
-        //             'class' => 'yii\rest\UrlRule',
-        //             'pluralize' => false,
-        //             'controller' => 'api/default'
-        //         ]
-        //     ],
-        // ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'pluralize' => false,
+                    'controller' => 'api/default'
+                ]
+            ],
+        ],
     ],
     'params' => $params,
     'modules' => [

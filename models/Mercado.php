@@ -31,7 +31,7 @@ class Mercado extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'category', 'price', 'availableQuantity', 'thumbnail', 'permalink'], 'string', 'max' => 100],
+            [['title', 'category', 'price', 'available_Quantity', 'thumbnail', 'permalink'], 'string', 'max' => 100],
         ];
     }
 
@@ -45,7 +45,7 @@ class Mercado extends \yii\db\ActiveRecord
             'title' => 'Title',
             'category' => 'Category',
             'price' => 'Price',
-            'availableQuantity' => 'Available Quantity',
+            'available_Quantity' => 'Available Quantity',
             'thumbnail' => 'Thumbnail',
             'permalink' => 'Permalink',
         ];
